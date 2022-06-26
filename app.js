@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 
 const app = express()
@@ -9,8 +10,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://localhost:27017/', {
-    dbName: 'book_db',
+mongoose.connect(process.env.MONGO_URL, {
+    dbName: 'bookDB',
     useNewUrlParser: true,
     useUnifiedTopology: true 
 }, err => err ? console.log(err) : console.log('Connected to database'));
