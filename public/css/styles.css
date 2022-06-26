@@ -1,0 +1,16 @@
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.card {
+    padding: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: block;
+    margin-left: auto;
+}
