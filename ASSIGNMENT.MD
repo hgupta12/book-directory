@@ -14,7 +14,7 @@ Add additional features to the Book Directory by adding code to the existing bas
 
 ### 1. Read individual books 📖
 
-  - Create a `GET` request to get the information of a partiuclar book.
+  - Create a `GET` request to get the information of a particular book.
   - Display all the information of this book on a new/same page.
   - Hyperlink each book displayed on the `/books` page to this. 
   Clicking this book must lead to the individual book's information. For instance, clicking book 1 must lead to `/books/1`
