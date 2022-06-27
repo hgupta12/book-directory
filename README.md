@@ -24,3 +24,5 @@ A basic express app to store books and their authors, and search among the added
 ## Resources
 - [Node.js installation guide](https://kinsta.com/blog/how-to-install-node-js/#how-to-install-nodejs-and-npm)
 - [MongoDB Atlas beginner's guide](https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/)
+
+## Link to the [assignment](https://github.com/WebClub-NITK/book-directory/blob/assignment/ASSIGNMENT.MD) 
