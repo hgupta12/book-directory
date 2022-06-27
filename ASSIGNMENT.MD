@@ -36,5 +36,16 @@ Add additional features to the Book Directory by adding code to the existing bas
   - Create a new page to display only the bestselling books. This would mean fetching only those books from our database that have `bestseller` set to `true`.
 
 
+## Resources
+
+- [https://nodejs.org/api/modules.html#modules_modules](https://nodejs.org/api/modules.html#modules_modules)
+
+- [https://expressjs.com/en/starter/basic-routing.html](https://expressjs.com/en/starter/basic-routing.html )
+
+- [https://expressjs.com/en/guide/routing.html](https://expressjs.com/en/guide/routing.html)
+
+- [https://expressjs.com/en/guide/using-middleware.html](https://expressjs.com/en/guide/using-middleware.html)
+
+- [https://ejs.co/](https://ejs.co/)
   
  
