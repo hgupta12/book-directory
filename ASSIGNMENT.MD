@@ -30,7 +30,7 @@ Add additional features to the Book Directory by adding code to the existing bas
   - Create a `DELETE` request to delete a book by its id.
   - You are free to provide a delete button wherever suitable.
 
-### 4. Show Bestselling books 🔖
+### 4. Show Bestselling books 🔖 (Optional)
 
   - Add a new `boolean` field called `bestseller` to the `bookSchema`.
   - Create a new page to display only the bestselling books. This would mean fetching only those books from our database that have `bestseller` set to `true`.
