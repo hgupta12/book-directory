@@ -8,7 +8,7 @@ Add additional features to the Book Directory by adding code to the existing bas
   - Create a separate branch for each task by the name `Task - <Task No>`. Eg: `Task - 1`
   - Commit and Push the changes to the respective branch.
   - Commit history would be checked to validate the contribution by each member.
-  - Once completed, submit the Google Form with the link to your fork.
+  - Once completed, submit [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdoQBbvMO3da9iHWSM483miJv_j0IitnMR869JL4sxoCnoQfQ/viewform?usp=sf_link) with the link to your fork.
 
 ## Tasks
 
