@@ -35,6 +35,18 @@ Add additional features to the Book Directory by adding code to the existing bas
   - Add a new `boolean` field called `bestseller` to the `bookSchema`.
   - Create a new page to display only the bestselling books. This would mean fetching only those books from our database that have `bestseller` set to `true`.
 
+## Marks Distribution
+
+Task 1 - 25  
+Task 2 - 40  
+Task 3 - 20  
+Git usage - 15    
+  
+Each task will be evaulated on the following metrics:  
+  
+Completion - 50%  
+UI - 30%  
+Code Quality- 20%  
 
 ## Resources
 
