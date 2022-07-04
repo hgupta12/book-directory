@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Directory | Books</title>
+    <title>Book Directory | <%= title %>   </title>
 </head>
 <body>
-    <h1>All books</h1>
+    <h1>List of all Books</h1>
+    <% if(books.length>0){ %> 
+        <% books.forEach(book=>{ %> 
+            <a href="<%= `/books/${book._id}`  %> "><%= book.name %> </a>
+            
+            <p><%= book.author.name %> </p>
+    <%}) %> 
+    <% } %> 
 </body>
 </html>

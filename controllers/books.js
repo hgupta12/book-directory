@@ -4,8 +4,7 @@ const {Author} = require('../models/Author')
 
 const getAllBooks = async (req,res)=>{
     const books = await Book.find();
-    console.log(books);
-    res.status(200).json(books)
+    res.render('books',{title:"All Books",books})
 }
 const createBook = (req,res)=>{
     // console.log(req.body);
@@ -60,7 +59,10 @@ const createBook = (req,res)=>{
 }
 const getBook = async(req,res)=>{
     const book =await Book.findById(req.params.id)
-    res.status(200).json(book)
+    res.render('book',{
+        title: book.name,
+        book
+    })
 }
 const updateBook =async (req,res)=>{
     const book = await Book.findOneAndUpdate({'_id':req.params.id},req.body,{
