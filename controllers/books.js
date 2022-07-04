@@ -72,7 +72,7 @@ const updateBook =async (req,res)=>{
     res.status(200).json({msg:"Book updated!",book})}
 const deleteBook = async (req,res)=>{
     const book = await Book.findOneAndDelete({'_id':req.params.id})
-    res.status(200).json({msg:"Book deleted!",book})
+    res.json({redirect:'/books'})
 }
 
 module.exports = {

@@ -10,5 +10,18 @@
     <h3><%= book.name %> </h3>
     <p><%= book.author.name %> </p>
     <p><%= book.quantity %> </p>
+    <button id="delete" data-book="<%= book._id %>">Delete</button>
 </body>
+<script>
+    const deleteBtn = document.querySelector('#delete');
+    deleteBtn.addEventListener('click',()=>{
+        const endpoint = `/books/${deleteBtn.dataset.book}`
+
+        fetch(endpoint,{
+            method:"DELETE",
+        }).then(res=>res.json())
+        .then(data=> window.location.href = data.redirect)
+        .catch(err=>console.log(err))
+    }) 
+</script>
 </html>
