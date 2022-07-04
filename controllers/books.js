@@ -9,7 +9,7 @@ const getAllBooks = async (req,res)=>{
 }
 const createBook = (req,res)=>{
     // console.log(req.body);
-    const {name,authorName,age, quantity, published} = req.body
+    const {name,authorName,age, quantity, published,bestseller} = req.body
     const publishedDate = new Date(published)
     Author.findOne({name:authorName, age:age},(err,author)=>{
         if(err)
@@ -20,7 +20,8 @@ const createBook = (req,res)=>{
                 name,
                 published: publishedDate,
                 quantity,
-                author
+                author,
+                bestseller: bestseller=='true'?true:false
             })
             book.save((err)=>{
                 if(err) console.log(err);
@@ -40,9 +41,10 @@ const createBook = (req,res)=>{
                     console.log('Author added');
                     const book = new Book({
                       name,
-                      published:publishedDate,
+                      published: publishedDate,
                       quantity,
-                      author:newAuthor,
+                      author: newAuthor,
+                      bestseller: bestseller=='true'?true:false,
                     });
                     book.save((err) => {
                       if (err) console.log(err);
