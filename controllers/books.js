@@ -77,7 +77,7 @@ const getBook = async(req,res)=>{
 }
 const updateBook =async (req,res)=>{
     console.log(req.params);
-    const book = await Book.findOneAndUpdate({'_id':req.params.id},{...req.body, bestseller:req.body.bestseller=='true'?'true':'false'},{
+    const book = await Book.findOneAndUpdate({'_id':req.params.id},{...req.body, bestseller:req.body.bestseller=='true'?true:false},{
         new:true,
         runValidators:true
     })
