@@ -2,6 +2,7 @@ const express = require('express')
 require('dotenv').config()
 const connectDB = require('./db/connect')
 const booksRouter = require('./routes/books')
+const Book  = require('./models/Book')
 
 const app = express();
 
@@ -20,6 +21,14 @@ app.get('/',(req,res)=>{
 
 app.get('/add',(req,res)=>{
     res.render('add-book')
+})
+app.get('/edit/:id',async (req,res)=>{
+    const book = await Book.findById(req.params.id);
+    console.log(book);
+    res.render('edit-book',{
+        title: "Edit the book",
+        book
+    })
 })
 
 app.use('/books',booksRouter)

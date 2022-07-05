@@ -7,15 +7,12 @@ const getAllBooks = async (req,res)=>{
     res.render('books',{title:"All Books",books})
 }
 const createBook = (req,res)=>{
-    // console.log(req.body);
     const {name,authorName,age, quantity, published,bestseller} = req.body
-    // res.status(200).json(req.body)
     const publishedDate = new Date(published)
     Author.findOne({name:authorName, age:age},(err,author)=>{
         if(err)
             console.log(err);
         else if(author){
-            console.log('Author already exists');
             const book = new Book({
                 name,
                 published: publishedDate,
@@ -26,7 +23,6 @@ const createBook = (req,res)=>{
             book.save((err)=>{
                 if(err) console.log(err);
                 else{
-                    console.log('Book added');
                     return res.redirect('/books');
                 }
             })
@@ -38,7 +34,6 @@ const createBook = (req,res)=>{
             newAuthor.save(err=>{
                 if(err) console.log(err);
                 else {
-                    console.log('Author added');
                     const book = new Book({
                       name,
                       published: publishedDate,
@@ -49,7 +44,6 @@ const createBook = (req,res)=>{
                     book.save((err) => {
                       if (err) console.log(err);
                       else {
-                        console.log("Book added");
                           return  res.redirect('/books');
                       }
                     });
@@ -66,11 +60,12 @@ const getBook = async(req,res)=>{
     })
 }
 const updateBook =async (req,res)=>{
-    const book = await Book.findOneAndUpdate({'_id':req.params.id},req.body,{
+    console.log(req.params);
+    const book = await Book.findOneAndUpdate({'_id':req.params.id},{...req.body, bestseller:req.body.bestseller=='true'?'true':'false'},{
         new:true,
         runValidators:true
     })
-    res.status(200).json({msg:"Book updated!",book})}
+    res.redirect(`/books/${book._id}`)}
 const deleteBook = async (req,res)=>{
     const book = await Book.findOneAndDelete({'_id':req.params.id})
     res.json({redirect:'/books'})

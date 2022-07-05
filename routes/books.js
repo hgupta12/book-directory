@@ -15,7 +15,8 @@ router.route('/')
 
 router.route('/:id')
 .get(getBook)
-.patch(updateBook)
 .delete(deleteBook)
+
+router.post('/edit/:id',updateBook)
 
 module.exports = router

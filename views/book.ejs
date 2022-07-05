@@ -11,6 +11,7 @@
     <p><%= book.author.name %> </p>
     <p><%= book.quantity %> </p>
     <button id="delete" data-book="<%= book._id %>">Delete</button>
+    <a href="/edit/<%= book._id %> ">Update book</a>
 </body>
 <script>
     const deleteBtn = document.querySelector('#delete');
