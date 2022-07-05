@@ -39,6 +39,12 @@ app.get('/edit/:id',async (req,res)=>{
 
 app.use('/books',booksRouter)
 
+app.use((req,res)=>{
+    res.render('404',{
+        title:'Error'
+    })
+})
+
 // listening at PORT
 
 const start = async()=>{
