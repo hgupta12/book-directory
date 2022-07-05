@@ -15,16 +15,22 @@ app.set('view engine','ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
+// use static files
+app.use(express.static('public'))
+
 app.get('/',(req,res)=>{
-    res.render('index')
+    res.render('index',{
+        title:'Book Directory'
+    })
 })
 
 app.get('/add',(req,res)=>{
-    res.render('add-book')
+    res.render('add-book',{
+        title:'Add a new book'
+    })
 })
 app.get('/edit/:id',async (req,res)=>{
     const book = await Book.findById(req.params.id);
-    console.log(book);
     res.render('edit-book',{
         title: "Edit the book",
         book

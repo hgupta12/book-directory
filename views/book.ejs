@@ -1,17 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Directory | <%= title %>  </title>
-</head>
-<body>
-    <h3><%= book.name %> </h3>
-    <p><%= book.author.name %> </p>
-    <p><%= book.quantity %> </p>
-    <button id="delete" data-book="<%= book._id %>">Delete</button>
-    <a href="/edit/<%= book._id %> ">Update book</a>
+<%- include('./partials/header.ejs') %> 
+<div class="container">
+
+    <div class="bookDetails col col-md-8">
+        <div class="top">
+            <div class="title">
+                <h2><%= book.name %> </h2>
+                <span>by <%= book.author.name %> </span>
+            </div>
+            <div class="actions">
+                    <button id="delete" data-book="<%= book._id %>" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                    <a href="/edit/<%= book._id %> " class="link-success"><i class="fas fa-pen"></i></a>
+            </div>
+        </div>
+        <div class="details">
+            <% if(book.bestseller == true){ %>
+                            <span class="bestseller">Bestseller <i class="fas fa-book"></i></span>
+                        <% } %> 
+            <p> <span>Quantity:</span>  <%= book.quantity %> </p>
+            <p> <span>Published Date:</span> <%= book.published.toISOString().substring(0,10) %> </p>
+        </div>
+</div>
+</div>
+    <%- include('./partials/footer.ejs') %> 
 </body>
 <script>
     const deleteBtn = document.querySelector('#delete');

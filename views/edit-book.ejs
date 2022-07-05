@@ -1,28 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> | Book Directory </title>
-</head>
-<body>
-    <h1>Edit the Details of the book </h1>
-    <form action="/books/edit/<%= book._id %>" method="POST">
-        <label for="name">Name</label>
-        <input type="text" name="name" value="<%= book.name %> ">
-        <label for="authorName">Author's Name</label>
-        <input type="text" name="authorName" value="<%= book.author.name %> ">
-        <label for="age">Author's age</label>
-        <input type="text" name="age" value="<%= book.author.age %> ">
-        <label for="published">Published Date</label>
-        <input type="date" name="published" value="<%= book.published.toISOString().substring(0, 10) %>">
-        <label for="quantity">Quantity</label>
-        <input type="text" name="quantity" value="<%= book.quantity %> ">
-        <label for="bestseller">Bestseller</label>
-        <input type="checkbox" name="bestseller" id="checkbox" value="true" data-bestseller=<%= book.bestseller %> %> >
-        <button type="submit" data-book="<%= book._id %>" id="submit" >Update Book</button>
-    </form>
+<%- include('./partials/header.ejs') %> 
+    <h1 class="text-center py-3">Edit the Details of the book </h1>
+    <div class="container">
+        <div class="row">
+            <form action="/books/edit/<%= book._id %>" method="POST" class="mx-3 col-12 col-md-8">
+                <div class="form-group mb-2">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" value="<%= book.name %> " class="form-control" required>
+                </div>
+                <div class="form-group mb-2">
+
+                    <label for="authorName">Author's Name</label>
+                    <input type="text" name="authorName" value="<%= book.author.name %> " class="form-control" required>
+                </div>
+                <div class="form-group mb-2">
+
+                    <label for="authorName">Author's Age</label>
+                    <input type="text" name="age" value="<%= book.author.age %> " class="form-control" required>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="published">Published Date</label>
+                    <input type="date" name="published" value="<%= book.published.toISOString().substring(0, 10) %>" class="my-2" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="text" name="quantity" value="<%= book.quantity %> " class="form-control" required>
+                </div>
+                <div class="form-group mt-2 mb-2">
+
+                    <label for="bestseller" class="form-check-label">Bestseller</label>
+                    <input type="checkbox" name="bestseller" id="checkbox" value="true" class="form-check-input" data-bestseller=<%= book.bestseller %>  >
+                </div>
+                <button type="submit" class="btn btn-primary" data-book="<%= book._id %>" id="submit" >Update Book</button>
+            </form>
+        </div>
+    </div>
+        <%- include('./partials/footer.ejs') %> 
 </body>
 <script>
     const check = document.querySelector('#checkbox')

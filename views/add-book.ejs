@@ -1,27 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Directory | Add New Book</title>
-</head>
-<body>
-    <h1>Add new book</h1>
-    <form action="/books" method="POST">
-        <label for="name">Name</label>
-        <input type="text" name="name">
-        <label for="authorName">Author's Name</label>
-        <input type="text" name="authorName">
-        <label for="age">Author's age</label>
-        <input type="text" name="age">
-        <label for="published">Published Date</label>
-        <input type="date" name="published">
-        <label for="quantity">Quantity</label>
-        <input type="text" name="quantity">
-        <label for="bestseller">Bestseller</label>
-        <input type="checkbox" name="bestseller" value="true">
-        <button type="submit">Add Book</button>
-    </form>
+<%- include('./partials/header.ejs') %> 
+    <h1 class="text-center py-3">Add new book</h1>
+    <div class="container">
+        <div class="row">
+            <form action="/books" method="POST" class="mx-3 col-12 col-md-8 ">
+                <div class="form-group mb-2">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="authorName">Author's Name</label>
+                    <input type="text" name="authorName" class="form-control" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="age">Author's age</label>
+                    <input type="text" name="age" class="form-control" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="published" class="mr-3">Published Date</label>
+                    <input type="date" name="published" class="my-2" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="quantity">Quantity</label>
+                    <input type="text" name="quantity" class="form-control" required >
+                </div>
+                <div class="form-group mt-2 mb-2">
+                    <label  for="bestseller"  class="form-check-label">Bestseller</label>
+                    <input type="checkbox" name="bestseller" value="true" class="form-check-input">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+        <%- include('./partials/footer.ejs') %> 
+
 </body>
 </html>

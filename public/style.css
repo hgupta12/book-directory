@@ -1,0 +1,75 @@
+.logo {
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.navBar {
+height: 80px;
+  padding: 0.5rem 2rem;
+  background-color: rgb(245, 245, 245);
+  margin-bottom: 1rem;
+}
+.navContainer{
+    display: flex;
+    height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+button{
+    display: block;
+}
+
+.nav-items a{
+    padding-left: 20px;
+}
+
+.bookDetails{
+    margin-bottom: 4rem;
+}
+
+.bookDetails .title h2{
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.bookDetails .title span{
+    font-size: 1.25rem;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.bookDetails .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+.bookDetails .actions{
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.bookDetails .actions a{
+    font-weight: 600;
+}
+
+.bookDetails .details span{
+    font-weight: 600;
+}

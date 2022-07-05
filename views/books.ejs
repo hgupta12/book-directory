@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Directory | <%= title %>   </title>
-</head>
-<body>
-    <h1>List of all Books</h1>
-    <% if(books.length>0){ %> 
-        <% books.forEach(book=>{ %> 
-            <a href="<%= `/books/${book._id}`  %> "><%= book.name %> </a>
-            
-            <p><%= book.author.name %> </p>
-    <%}) %> 
-    <% }else{ %>
-        <p>No books to display!</p>
-        <% } %>  
-    <div>
-        <a href="/add">Add a new book</a>
+<%- include('./partials/header.ejs') %> 
+<div class="container">
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <h1>List of all Books</h1>
+        <a href="/add" class="link-primary pl-2">Add a new book</a>
     </div>
+    <div class="list-group col-12 col-md-8 mb-4">
+        <% if(books.length>0){ %> 
+            <% books.forEach(book=>{ %> 
+                <a class="list-group-item" href="<%= `/books/${book._id}`  %> " >
+                    <div class="div">
+                        <h4 class="list-group-item-heading"><%= book.name %> </h4>
+                        <% if(book.bestseller == true){ %>
+                            <span class="bestseller">Bestseller <i class="fas fa-book"></i></span>
+                        <% } %>  
+                    </div>
+                    <p class="list-group-item-text"><%= book.author.name %> </p>
+                </a>
+        <%}) %> 
+        <% }else{ %>
+            <p>No books to display!</p>
+            <% } %>  
+    </div>
+</div>
+        <%- include('./partials/footer.ejs') %> 
 </body>
 </html>
