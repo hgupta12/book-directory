@@ -9,6 +9,7 @@ const getAllBooks = async (req,res)=>{
 const createBook = (req,res)=>{
     // console.log(req.body);
     const {name,authorName,age, quantity, published,bestseller} = req.body
+    // res.status(200).json(req.body)
     const publishedDate = new Date(published)
     Author.findOne({name:authorName, age:age},(err,author)=>{
         if(err)
@@ -26,7 +27,7 @@ const createBook = (req,res)=>{
                 if(err) console.log(err);
                 else{
                     console.log('Book added');
-                    return res.status(201).json(book);
+                    return res.redirect('/books');
                 }
             })
         }else{
@@ -49,7 +50,7 @@ const createBook = (req,res)=>{
                       if (err) console.log(err);
                       else {
                         console.log("Book added");
-                          return  res.status(201).json(book);
+                          return  res.redirect('/books');
                       }
                     });
                 }

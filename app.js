@@ -18,6 +18,10 @@ app.get('/',(req,res)=>{
     res.render('index')
 })
 
+app.get('/add',(req,res)=>{
+    res.render('add-book')
+})
+
 app.use('/books',booksRouter)
 
 // listening at PORT
