@@ -41,7 +41,9 @@ app.use('/books',booksRouter)
 
 app.use((req,res)=>{
     res.render('404',{
-        title:'Error'
+        title:'Error',
+        error: 'Page not found!',
+        errorCode: 404
     })
 })
 
