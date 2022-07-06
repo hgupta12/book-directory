@@ -24,7 +24,5 @@ A basic Express CRUD app for managing books
 
 NodeJS, ExpressJS, EJS, Bootstrap, MongoDB
 
-You can check out the app [here](https://wec-book-directory.herokuapp.com/)
-
 
 
