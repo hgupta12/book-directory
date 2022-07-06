@@ -76,12 +76,28 @@ const getBook = async(req,res)=>{
     }
 }
 const updateBook =async (req,res)=>{
-    console.log(req.params);
-    const book = await Book.findOneAndUpdate({'_id':req.params.id},{...req.body, bestseller:req.body.bestseller=='true'?true:false},{
-        new:true,
-        runValidators:true
-    })
-    res.redirect(`/books/${book._id}`)}
+    try{
+
+        const book = await Book.findOneAndUpdate({'_id':req.params.id},{...req.body, bestseller:req.body.bestseller=='true'?true:false},{
+            new:true,
+            runValidators:true
+        })
+        if(book)
+           return res.redirect(`/books/${book._id}`)
+        res.render("404", {
+          title: "Book Not Found",
+          error: "No such book exists!",
+          errorCode: 404,
+        });
+        }catch(err){
+            res.render("404", {
+              title: "Error",
+              error: "Something went wrong!",
+              errorCode: 404,
+            });
+        }
+    }
+
 const deleteBook = async (req,res)=>{
     const book = await Book.findOneAndDelete({'_id':req.params.id})
     res.json({redirect:'/books'})
