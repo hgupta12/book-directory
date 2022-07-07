@@ -30,11 +30,27 @@ app.get('/add',(req,res)=>{
     })
 })
 app.get('/edit/:id',async (req,res)=>{
-    const book = await Book.findById(req.params.id);
-    res.render('edit-book',{
-        title: "Edit the book",
-        book
-    })
+    try {
+        const book = await Book.findById(req.params.id);
+        if (book){
+            return res.render("edit-book", {
+              title: "Edit the book",
+              book,
+            });
+        }
+        res.render("404", {
+          title: "Book Not Found",
+          error: "No such book exists!",
+          errorCode: 404,
+        });
+    } catch (error) {
+        res.render("404", {
+          title: "Error",
+          error: "Something went wrong!",
+          errorCode: 404,
+        });
+    }
+    
 })
 
 app.use('/books',booksRouter)
